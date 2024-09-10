@@ -1,18 +1,8 @@
 <?php 
 
 const API_URL = "https://whenisthenextmcufilm.com/api";
-#primero inicializamos una nueva sesión de cURL; ch = cURL handle
-$ch = curl_init(API_URL);
-// Aqui indicamos que queremos recibir el resultado de la petición y no mostrarla en pantalla
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-
-/* Ejecutar la peticion
-y guardamos el resultado
-*/
-$result = curl_exec($ch);
+$result = file_get_contents(API_URL);
 $data = json_decode($result, true);
-
-curl_close($ch);
 
 ?>
 
